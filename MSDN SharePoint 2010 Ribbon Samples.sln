@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplyDocumentPrefixRibbon", "ApplyDocumentPrefixRibbon\ApplyDocumentPrefixRibbon.csproj", "{5E810CEB-E8F8-446C-9B30-BA0BC9160E37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPartRibbonContextualTab", "WebPartRibbonContextualTab\WebPartRibbonContextualTab.csproj", "{B323B26C-609B-4D61-B815-AC9F4D560CDE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5E810CEB-E8F8-446C-9B30-BA0BC9160E37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E810CEB-E8F8-446C-9B30-BA0BC9160E37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E810CEB-E8F8-446C-9B30-BA0BC9160E37}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{5E810CEB-E8F8-446C-9B30-BA0BC9160E37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E810CEB-E8F8-446C-9B30-BA0BC9160E37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E810CEB-E8F8-446C-9B30-BA0BC9160E37}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{B323B26C-609B-4D61-B815-AC9F4D560CDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B323B26C-609B-4D61-B815-AC9F4D560CDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B323B26C-609B-4D61-B815-AC9F4D560CDE}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{B323B26C-609B-4D61-B815-AC9F4D560CDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B323B26C-609B-4D61-B815-AC9F4D560CDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B323B26C-609B-4D61-B815-AC9F4D560CDE}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

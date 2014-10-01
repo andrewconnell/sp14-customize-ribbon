@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="d8afe1f4-3b9d-4c20-8722-f238176d1528" solutionId="d8afe1f4-3b9d-4c20-8722-f238176d1528" resetWebServer="false" name="ApplyDocumentPrefixRibbon" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="fae773d3-a7bb-45b9-8624-d0a284e310f1" />
+  </features>
+  <projectItems>
+    <projectItemReference itemId="5b2266c0-ed3e-481e-91f5-d47637a567bd" />
+    <projectItemReference itemId="039608c8-4509-4021-af66-dbb42ddd0fa7" />
+  </projectItems>
+</package>

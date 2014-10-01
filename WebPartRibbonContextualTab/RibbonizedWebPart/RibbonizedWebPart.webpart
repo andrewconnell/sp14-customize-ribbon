@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<webParts>
+  <webPart xmlns="http://schemas.microsoft.com/WebPart/v3">
+    <metaData>
+      <type name="WebPartRibbonContextualTab.RibbonizedWebPart.RibbonizedWebPart, $SharePoint.Project.AssemblyFullName$" />
+      <importErrorMessage>$Resources:core,ImportErrorMessage;</importErrorMessage>
+    </metaData>
+    <data>
+      <properties>
+        <property name="Title" type="string">Contextual Tab Ribbonized Web Part</property>
+        <property name="Description" type="string">Adds a contextual tab to the ribbon when the Web Part is on the page.</property>
+      </properties>
+    </data>
+  </webPart>
+</webParts>

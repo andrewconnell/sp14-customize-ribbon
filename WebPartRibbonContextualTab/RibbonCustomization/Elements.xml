@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <CustomAction Id="WebPartContextualTabs"
+                Location="CommandUI.Ribbon">
+    <CommandUIExtension>
+      <CommandUIDefinitions>
+        <CommandUIDefinition Location="Ribbon.ContextualTabs._children">
+          <ContextualGroup Id="Ribbon.WebPartContextualTabGroup"
+                           ContextualGroupId="WebPartContextualTab"
+                           Title="Ribbonized Web Part Tools"
+                           Sequence="150"
+                           Color="Green"
+                           Command="WebPartContextualTab.OnEnableContextualTab">
+            <Tab Id="Ribbon.PropertyChangerTab"
+                Title="Tools"
+                Sequence="501">
+              <Scaling Id="Ribbon.PropertyChangerTab.Scaling">
+                <MaxSize Id="Ribbon.PropertyChangerTab.MaxSize"
+                          GroupId="Ribbon.PropertyChangerTab.PropertyGroup"
+                          Size="LargeLarge" />
+                <MaxSize Id="Ribbon.PropertyChangerTab.MaxSize"
+                          GroupId="Ribbon.PropertyChangerTab.PostBackGroup"
+                          Size="LargeLarge" />
+              </Scaling>
+              <Groups Id="Ribbon.PropertyChangerTab.Groups">
+                <Group Id="Ribbon.PropertyChangerTab.PropertyGroup"
+                       Title="Edit"
+                       Description="General Web Part properties."
+                       Sequence="15"
+                       Template="Ribbon.Templates.Flexible2">
+                  <Controls Id="Ribbon.PropertyChangerTab.PropertyGroup.Controls">
+                    <Button Id="Ribbon.PropertyChangerTab.PropertyGroup.GeneralDialogButton"
+                            LabelText="General Properties"
+                            TemplateAlias="o1"
+                            Sequence="15"
+                            Image16by16="/_layouts/Images/WebPartRibbonContextualTab/16x16Placeholder.png"
+                            Image32by32="/_layouts/Images/WebPartRibbonContextualTab/32x32Placeholder.png" />
+                    <Button Id="Ribbon.PropertyChangerTab.PropertyGroup.UXDialogButton"
+                            LabelText="Display Properties"
+                            TemplateAlias="o2"
+                            Sequence="17"
+                            Image16by16="/_layouts/Images/WebPartRibbonContextualTab/16x16Placeholder.png"
+                            Image32by32="/_layouts/Images/WebPartRibbonContextualTab/32x32Placeholder.png" />
+                  </Controls>
+                </Group>
+                <Group Id="Ribbon.PropertyChangerTab.PostBackGroup"
+                       Title="PostBack"
+                       Sequence="25"
+                       Template="Ribbon.Templates.Flexible2">
+                  <Controls Id="Ribbon.PropertyChangerTab.PropertyGroup.Controls">
+                    <Button Id="Ribbon.PropertyChangerTab.PropertyGroup.GeneralDialogButton"
+                            LabelText="Write to Web Part"
+                            Command="WebPartContextualTabs.OnPostback"
+                            TemplateAlias="o1"
+                            Sequence="15"
+                            Image16by16="/_layouts/Images/WebPartRibbonContextualTab/16x16Placeholder.png"
+                            Image32by32="/_layouts/Images/WebPartRibbonContextualTab/32x32Placeholder.png" />
+                  </Controls>
+                </Group>
+              </Groups>
+            </Tab>
+          </ContextualGroup>
+        </CommandUIDefinition>
+      </CommandUIDefinitions>
+
+      <CommandUIHandlers>
+        <CommandUIHandler Command="WebPartContextualTab.OnEnableContextualTab"
+                          CommandAction=""
+                          EnabledScript="return true;" />
+        <CommandUIHandler Command="WebPartContextualTabs.OnPostback"
+                          CommandAction="javascript:__doPostBack('RibbonizedWebPartPostback','');" />
+      </CommandUIHandlers>
+
+    </CommandUIExtension>
+  </CustomAction>
+</Elements>

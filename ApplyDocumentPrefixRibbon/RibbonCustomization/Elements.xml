@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <CustomAction Id="Ribbon.Documents.ApplyDocumentPrefix"
+                Location="CommandUI.Ribbon">
+    <CommandUIExtension>
+      <CommandUIDefinitions>
+        <CommandUIDefinition Location="Ribbon.Documents.Groups._children">
+          <Group Id="Ribbon.Documents.ApplyDocumentPrefix"
+                 Title="Document Naming Tools"
+                 Description="Document Naming Tools Description"
+                 Sequence="25"
+                 Template="Ribbon.Templates.MsdnTemplate">
+            <Controls Id="Ribbon.Documents.ApplyDocumentPrefix.Controls">
+              <Button Id="Ribbon.Documents.ApplyDocumentPrefix.CustomHelpButton"
+                      LabelText="Apply Document Prefix Help"
+                      TemplateAlias="o1"
+                      Sequence="15"
+                      Image16by16="/_layouts/Images/ApplyDocumentPrefixRibbon/16x16Placeholder.png"
+                      Image32by32="/_layouts/Images/ApplyDocumentPrefixRibbon/32x32Placeholder.png"
+                      Command="ApplyDocumentPrefix.OnGetHelpApplyDocPrefix" />
+              <Button Id="Ribbon.Documents.ApplyDocumentPrefix.CustomApplyPrefixButton"
+                      LabelText="Apply Prefix w/ CommandUI Handler"
+                      TemplateAlias="o2"
+                      Sequence="17"
+                      Image16by16="/_layouts/Images/ApplyDocumentPrefixRibbon/16x16Placeholder.png"
+                      Image32by32="/_layouts/Images/ApplyDocumentPrefixRibbon/32x32Placeholder.png"
+                      Command="ApplyDocumentPrefix.OnApplyDocPrefixUIHandler" />
+              <Button Id="Ribbon.Documents.ApplyDocumentPrefix.CustomPageComponentButton"
+                      LabelText="Apply Prefix w/ Page Component"
+                      TemplateAlias="o3"
+                      Sequence="19"
+                      Image16by16="/_layouts/Images/ApplyDocumentPrefixRibbon/16x16Placeholder.png"
+                      Image32by32="/_layouts/Images/ApplyDocumentPrefixRibbon/32x32Placeholder.png"
+                      Command="ApplyDocumentPrefix.OnApplyDocPrefixPageComponent" />
+            </Controls>
+          </Group>
+        </CommandUIDefinition>
+        <CommandUIDefinition Location="Ribbon.Documents.Scaling._children">
+          <MaxSize Id="Ribbon.Documents.Scaling.ApplyDocumentPrefix.MaxSize"
+                   GroupId="Ribbon.Documents.ApplyDocumentPrefix"
+                   Size="MsdnVertical"
+                   Sequence="15" />
+        </CommandUIDefinition>
+
+        <CommandUIDefinition Location="Ribbon.Templates._children">
+          <GroupTemplate Id="Ribbon.Templates.MsdnTemplate">
+            <Layout Title="MsdnHorizontal">
+              <Section Type="OneRow">
+                <Row>
+                  <ControlRef DisplayMode="Large" TemplateAlias="o1" />
+                  <ControlRef DisplayMode="Large" TemplateAlias="o2" />
+                  <ControlRef DisplayMode="Large" TemplateAlias="o3" />
+                </Row>
+              </Section>
+            </Layout>
+            <Layout Title="MsdnVertical">
+              <Section Type="ThreeRow">
+                <Row>
+                  <ControlRef DisplayMode="Medium" TemplateAlias="o1" />
+                </Row>
+                <Row>
+                  <ControlRef DisplayMode="Medium" TemplateAlias="o2" />
+                </Row>
+                <Row>
+                  <ControlRef DisplayMode="Medium" TemplateAlias="o3" />
+                </Row>
+              </Section>
+            </Layout>
+            <Layout Title="MsdnVerticalTextOnly">
+              <Section Type="ThreeRow">
+                <Row>
+                  <ControlRef DisplayMode="Menu" TemplateAlias="o1" />
+                </Row>
+                <Row>
+                  <ControlRef DisplayMode="Menu" TemplateAlias="o2" />
+                </Row>
+                <Row>
+                  <ControlRef DisplayMode="Menu" TemplateAlias="o3" />
+                </Row>
+              </Section>
+            </Layout>
+          </GroupTemplate>
+        </CommandUIDefinition>
+      </CommandUIDefinitions>
+
+      <CommandUIHandlers>
+        <CommandUIHandler Command="ApplyDocumentPrefix.OnGetHelpApplyDocPrefix"
+                          CommandAction="javascript:
+                            var dialogOptions = {
+                              url: '/_layouts/ApplyDocumentPrefixRibbon/DocPrefixHelp.aspx',
+                              title: 'Apply Document Prefix Help',
+                              allowMaximize: true,
+                              showClose: true,
+                              width:500,
+                              height:400
+                            };
+                            SP.UI.ModalDialog.showModalDialog(dialogOptions); " />
+        <CommandUIHandler Command="ApplyDocumentPrefix.OnApplyDocPrefixUIHandler"
+                          CommandAction="javascript:
+                            function dialogCallback(dialogResult, returnValue){
+                              SP.UI.Notify.addNotification(returnValue);
+                              SP.UI.ModalDialog.RefreshPage(SP.UI.DialogResult.OK);
+                            }
+                          
+                            var selectedItems = SP.ListOperation.Selection.getSelectedItems();
+                            var selectedItemIds = '';
+                            var selectedItemIndex;
+                            for (selectedItemIndex in selectedItems){
+                              selectedItemIds += '|' + selectedItems[selectedItemIndex].id;
+                            }
+                          
+                            var dialogOptions = {
+                              url: '/_layouts/ApplyDocumentPrefixRibbon/DocPrefixPrompt.aspx?selectedItems=' +selectedItemIds +'&amp;ListId=' +SP.ListOperation.Selection.getSelectedList(),
+                              title: 'Set Document Prefix',
+                              allowMaximize: false,
+                              showClose: false,
+                              width:500,
+                              height:400,
+                              dialogReturnValueCallback: dialogCallback
+                            };
+                            
+                            SP.UI.ModalDialog.showModalDialog(dialogOptions);"
+                          EnabledScript="javascript:
+                            function checkIsEnabled(){
+                              // check items selected
+                              var selectedItems = SP.ListOperation.Selection.getSelectedItems();
+                              var count = CountDictionary(selectedItems);
+                              return (count > 0);
+                            }; 
+                                          
+                            checkIsEnabled();"
+          />
+      </CommandUIHandlers>
+    </CommandUIExtension>
+  </CustomAction>
+</Elements>
